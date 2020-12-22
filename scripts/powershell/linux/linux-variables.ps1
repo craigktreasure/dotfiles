@@ -1,6 +1,5 @@
 #Requires -PSEdition Core
 
-Set-StrictMode -Version 1.0
 $ErrorActionPreference = "Stop"
 
 if (Test-Path variable:\OSRelease) {

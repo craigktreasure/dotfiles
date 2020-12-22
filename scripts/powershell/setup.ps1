@@ -1,14 +1,17 @@
 #Requires -PSEdition Core
 
-Set-StrictMode -Version 1.0
 $ErrorActionPreference = "Stop"
 
-Write-Host 'Setting up additional configurations in PowerShell...' -ForegroundColor Magenta
+Write-Host 'Starting configuration from PowerShell...' -ForegroundColor Green
+
+. (Join-Path $PSScriptRoot 'variables.ps1')
 
 . (Join-Path $PSScriptRoot 'configure.ps1')
 
 if ($IsLinux) {
     . (Join-Path $PSScriptRoot 'linux' 'setup-linux.ps1')
+} elseif ($IsWindows) {
+    . (Join-Path $PSScriptRoot 'windows' 'setup-windows.ps1')
 }
 
-Write-Host 'PowerShell configuration complete.' -ForegroundColor Green
+Write-Host 'Configuration from PowerShell complete.' -ForegroundColor Green

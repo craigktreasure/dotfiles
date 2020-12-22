@@ -1,11 +1,6 @@
 #Requires -PSEdition Core
 
-Set-StrictMode -Version 1.0
 $ErrorActionPreference = "Stop"
-
-if ($IsLinux) {
-    . (Join-Path $PSScriptRoot '..' 'linux' 'linux-variables.ps1')
-}
 
 # Configure Git profile
 Write-Host 'Configuring Git profile...' -ForegroundColor Magenta
