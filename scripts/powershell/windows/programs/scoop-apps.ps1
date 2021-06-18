@@ -17,7 +17,7 @@ Write-Host 'Installing scoop required apps...'
 scoop install 7zip innounp dark
 
 Write-Host 'Installing sysadmin scoop tools...'
-scoop install sudo which grep tar gzip zip unzip `
+scoop install sudo which grep gzip zip unzip `
               psutils sysinternals wget mkcert `
               speedtest-cli
 
