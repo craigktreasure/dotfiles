@@ -2,7 +2,7 @@
 
 # https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu
 
-echo "Installing .NET Core 3.1 and .NET 5.0"
+echo "Installing .NET Core 3.1 and .NET 6.0"
 
 # Update the list of packages
 sudo apt-get update
@@ -21,4 +21,4 @@ rm ~/packages-microsoft-prod.deb
 sudo apt-get update; \
   sudo apt-get install -y apt-transport-https && \
   sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-3.1 dotnet-sdk-5.0
+  sudo apt-get install -y dotnet-sdk-3.1 dotnet-sdk-6.0
