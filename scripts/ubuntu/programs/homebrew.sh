@@ -5,7 +5,7 @@ if ! command -v brew; then
     
     sudo apt-get install -y build-essential
     
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" </dev/null
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.profile
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     brew --version
