@@ -19,7 +19,6 @@ When the script is run from WSL, the Git credential manager is configured to use
 ToDo:
 
 * Install Git Credential Manager Core for non-WSL installs.
-* Install and configure the Azure credential provider.
 
 ### Windows
 

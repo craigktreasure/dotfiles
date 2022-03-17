@@ -15,5 +15,6 @@ if ($IsLinux) {
 }
 
 . (Join-Path $PSScriptRoot 'common' 'programs' 'dotnet-tools.ps1')
+. (Join-Path $PSScriptRoot 'common' 'programs' 'azure-artifact-credential-provider.ps1')
 
 Write-Host 'Configuration from PowerShell complete.' -ForegroundColor Green
