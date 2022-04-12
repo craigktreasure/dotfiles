@@ -5,9 +5,15 @@ $ErrorActionPreference = "Stop"
 # Configure Git profile
 Write-Host 'Configuring Git profile...' -ForegroundColor Magenta
 
+$isNotDomainJoined = $env:COMPUTERNAME -eq $env:USERDOMAIN
+
 git config --global init.defaultbranch main
 git config --global user.name 'Craig Treasure'
-git config --global user.email 'craigktreasure@outlook.com'
+
+if ($isNotDomainJoined) {
+    git config --global user.email 'craigktreasure@outlook.com'
+}
+
 git config --global fetch.prune true
 git config --global pull.rebase true
 
