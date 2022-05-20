@@ -19,7 +19,7 @@ scoop install 7zip innounp dark
 Write-Host 'Installing sysadmin scoop tools...'
 scoop install sudo which grep gzip zip unzip `
               psutils sysinternals wget mkcert `
-              speedtest-cli bat
+              speedtest-cli bat less
 
 Write-Host 'Installing development scoop apps...'
 scoop install nuget vswhere dotpeek gh ilspy `
