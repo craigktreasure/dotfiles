@@ -2,15 +2,31 @@
 
 $ErrorActionPreference = "Stop"
 
+function Get-IsDomainJoined {
+    if ($IsWsl) {
+        $computerName = wslvar COMPUTERNAME
+        $domain = wslvar USERDOMAIN
+
+        return $computerName -ne $domain
+    } elseif ($IsWindows) {
+        return $env:COMPUTERNAME -ne $env:USERDOMAIN
+    }
+
+    return $false
+}
+
 # Configure Git profile
 Write-Host 'Configuring Git profile...' -ForegroundColor Magenta
-
-$isNotDomainJoined = $env:COMPUTERNAME -eq $env:USERDOMAIN
 
 git config --global init.defaultbranch main
 git config --global user.name 'Craig Treasure'
 
-if ($isNotDomainJoined) {
+$isDomainJoined = Get-IsDomainJoined
+
+if ($isDomainJoined) {
+    Write-Host 'Make sure to configure the git email: git config --global user.email <email>' -ForegroundColor Yellow
+}
+else {
     git config --global user.email 'craigktreasure@outlook.com'
 }
 

@@ -24,3 +24,9 @@ echo "Intalling Homebrew packages..."
 . $SCRIPTS_UBUNTU_DIR/programs/cmake.sh
 . $SCRIPTS_UBUNTU_DIR/programs/github-cli.sh
 . $SCRIPTS_UBUNTU_DIR/programs/llvm.sh
+
+if grep -q WSL /proc/sys/kernel/osrelease; then
+  echo "Installing WSL utilities..."
+
+  . $SCRIPTS_UBUNTU_DIR/programs/wslutilities.sh
+fi
