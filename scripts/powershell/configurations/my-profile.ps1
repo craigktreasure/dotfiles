@@ -29,7 +29,10 @@ git config --global core.excludesfile "$MyProfileLocation/Git/.gitignore"
 # Configure PowerShell profile from my-profile
 Write-Host 'Configuring PowerShell profile with my-profile...' -ForegroundColor Magenta
 
-if (-not (Test-Path -Path $profile.CurrentUserCurrentHost)) {
+[bool] $skipCopyProfile = (Test-Path -Path $profile.CurrentUserCurrentHost) `
+                          -and (Get-Content $profile.CurrentUserCurrentHost -Raw)
+
+if (-not $skipCopyProfile) {
     new-item $PROFILE.CurrentUserCurrentHost -ItemType file -Force | Out-Null
     Copy-Item -Path (Join-Path $MyProfileLocation 'PowerShell' 'Microsoft.PowerShell_profile.ps1') `
               -Destination $PROFILE.CurrentUserCurrentHost -Force
