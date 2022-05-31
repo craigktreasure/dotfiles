@@ -20,7 +20,7 @@ git config --global pull.rebase true
 if ($IsWsl) {
     git config --global core.editor "code --wait"
     # https://github.com/GitCredentialManager/git-credential-manager/blob/main/docs/wsl.md
-    git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"
+    git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager-core.exe"
     git config --global credential.https://dev.azure.com.usehttppath true
 } elseif ($IsLinux) {
     git config --global core.editor nano
