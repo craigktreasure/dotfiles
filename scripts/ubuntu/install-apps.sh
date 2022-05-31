@@ -18,7 +18,6 @@ echo "Intalling packages that require new package sources and other configuratio
 . $SCRIPTS_UBUNTU_DIR/programs/powershell.sh
 . $SCRIPTS_UBUNTU_DIR/programs/homebrew.sh
 . $SCRIPTS_UBUNTU_DIR/programs/rust.sh
-. $SCRIPTS_UBUNTU_DIR/programs/speedtest-cli.sh
 
 echo "Intalling Homebrew packages..."
 
