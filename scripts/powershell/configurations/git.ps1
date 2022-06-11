@@ -2,6 +2,8 @@
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '../variables.ps1')
+
 function Get-IsDomainJoined {
     if ($IsWsl) {
         $computerName = wslvar COMPUTERNAME
@@ -13,6 +15,33 @@ function Get-IsDomainJoined {
     }
 
     return $false
+}
+
+# https://github.com/GitCredentialManager/git-credential-manager/blob/main/docs/wsl.md
+function Get-GitCredentialManagerCorePath {
+    $location = "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager-core.exe"
+    if (Test-Path $location) {
+        return $location
+    }
+
+    $locations = @(Get-ChildItem -Path '/mnt/c/Program Files/Git' -Recurse -Filter git-credential-manager-core.exe)
+
+    if ($locations.Count -eq 0) {
+        return $null
+    }
+
+    Return ($locations[0] | Select-Object -ExpandProperty FullName) -replace ' ','\ '
+}
+
+function Set-GitCredentialManagerCoreConfiguration {
+    $gcmcPath = Get-GitCredentialManagerCorePath
+
+    if (-not $gcmcPath) {
+        Write-Warning 'Unable to locate git-credential-manager-core.exe. Git credential manager will need to be configured manually.'
+        return
+    }
+
+    git config --global credential.helper $gcmcPath
 }
 
 # Configure Git profile
@@ -35,8 +64,7 @@ git config --global pull.rebase true
 
 if ($IsWsl) {
     git config --global core.editor "code --wait"
-    # https://github.com/GitCredentialManager/git-credential-manager/blob/main/docs/wsl.md
-    git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager-core.exe"
+    Set-GitCredentialManagerCoreConfiguration
     git config --global credential.https://dev.azure.com.usehttppath true
 } elseif ($IsLinux) {
     git config --global core.editor nano
