@@ -2,9 +2,18 @@
 
 $ErrorActionPreference = "Stop"
 
-Write-Host 'Installing Beyond Compare...'
+. (Join-Path $PSScriptRoot '..' 'winget-helpers.ps1')
 
-winget install --id=ScooterSoftware.BeyondCompare4 --exact
+Write-Host 'Installing Beyond Compare...' -ForegroundColor Magenta
+
+$wingetId = 'ScooterSoftware.BeyondCompare4'
+
+if (Test-WingetInstalledById $wingetId) {
+    Write-Host 'Already installed.'
+    return
+}
+
+winget install --id=$wingetId --exact
 
 # The silent install does allow you to opt out of the Clipboard Compare tool,
 # so the tool is configured to run at logon and running after installation.
