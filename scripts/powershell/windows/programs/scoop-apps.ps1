@@ -18,14 +18,14 @@ scoop install 7zip innounp dark
 
 Write-Host 'Installing sysadmin scoop tools...'
 scoop install sudo which grep gzip zip unzip `
-              psutils sysinternals wget mkcert `
+              psutils wget mkcert `
               speedtest-cli bat less
 
 Write-Host 'Installing development scoop apps...'
 scoop install nuget vswhere dotpeek gh ilspy `
               cmake llvm notepadplusplus `
               msbuild-structured-log-viewer `
-              zulu8 zulu codetrack mardown-monster
+              zulu8 zulu codetrack
 
 Write-Host 'Installing extra scoop apps...'
 scoop install cpu-z mediainfo hwmonitor git-sizer `
