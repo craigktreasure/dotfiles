@@ -25,7 +25,7 @@ Write-Host 'Installing development scoop apps...'
 scoop install nuget vswhere dotpeek gh ilspy `
               cmake llvm notepadplusplus `
               msbuild-structured-log-viewer `
-              zulu8 zulu codetrack
+              zulu8-jdk zulu11-jdk zulu-jdk codetrack
 
 Write-Host 'Installing extra scoop apps...'
 scoop install cpu-z mediainfo hwmonitor git-sizer `
