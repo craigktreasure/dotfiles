@@ -2,6 +2,15 @@
 
 $ErrorActionPreference = "Stop"
 
-Write-Host 'Installing Visual Studio Code...'
+. (Join-Path $PSScriptRoot '..' 'winget-helpers.ps1')
 
-winget install --id=Microsoft.VisualStudioCode --exact
+Write-Host 'Installing Visual Studio Code...' -ForegroundColor Magenta
+
+$wingetId = 'Microsoft.VisualStudioCode'
+
+if (Test-WingetInstalledById $wingetId) {
+    Write-Host 'Already installed.'
+    return
+}
+
+winget install --id=$wingetId --exact
