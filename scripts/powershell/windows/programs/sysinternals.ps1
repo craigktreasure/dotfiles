@@ -4,7 +4,7 @@ $ErrorActionPreference = "Stop"
 
 . (Join-Path $PSScriptRoot '..' 'winget-helpers.ps1')
 
-Write-Host 'Installing Sysinternals...'
+Write-Host 'Installing Sysinternals...' -ForegroundColor Magenta
 
 if (Test-WingetInstalledByName 'Sysinternals Suite') {
     Write-Host 'Already installed.'
