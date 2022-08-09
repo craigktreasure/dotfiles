@@ -12,7 +12,6 @@ $programsPath = Join-Path $PSScriptRoot 'programs'
 . "$programsPath/linqpad.ps1"
 . "$programsPath/nuget-package-explorer.ps1"
 . "$programsPath/powertoys.ps1"
-. "$programsPath/teams.ps1"
 . "$programsPath/vs-code.ps1"
 . "$programsPath/windows-terminal.ps1"
 . "$programsPath/visual-studio.ps1"
