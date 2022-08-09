@@ -2,6 +2,15 @@
 
 $ErrorActionPreference = "Stop"
 
-Write-Host 'Installing .NET SDK...'
+. (Join-Path $PSScriptRoot '..' 'winget-helpers.ps1')
 
-winget install --id=Microsoft.dotnet --exact
+Write-Host 'Installing .NET 6 SDK...' -ForegroundColor Magenta
+
+$wingetId = 'Microsoft.DotNet.SDK.6'
+
+if (Test-WingetInstalledById $wingetId) {
+    Write-Host 'Already installed.'
+    return
+}
+
+winget install --id=$wingetId --exact
