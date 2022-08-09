@@ -11,7 +11,7 @@ Write-Host 'Configuring scoop buckets...'
 scoop bucket add extras
 scoop bucket add github-gh https://github.com/cli/scoop-gh.git
 scoop bucket add java
-scoop bucket add jetbrains
+scoop bucket add JetBrains https://github.com/Ash258/Scoop-JetBrains
 
 Write-Host 'Installing scoop required apps...'
 scoop install 7zip innounp dark
