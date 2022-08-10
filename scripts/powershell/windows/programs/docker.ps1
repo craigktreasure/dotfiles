@@ -2,11 +2,21 @@
 
 $ErrorActionPreference = "Stop"
 
-Write-Host 'Installing Docker Desktop...'
+. (Join-Path $PSScriptRoot '..' 'windows-variables.ps1')
+. (Join-Path $PSScriptRoot '..' 'winget-helpers.ps1')
 
-if ($IsVirtualMachine) {
+Write-Host 'Installing Docker Desktop...' -ForegroundColor Magenta
+
+$wingetId = 'Docker.DockerDesktop'
+
+if ($script:IsVirtualMachine) {
     Write-Warning 'Skipping for virtual machine.'
     return
 }
 
-winget install --id=Docker.DockerDesktop --exact
+if (Test-WingetInstalledById $wingetId) {
+    Write-Host 'Already installed.'
+    return
+}
+
+winget install --id=$wingetId --exact --interactive
