@@ -1,17 +1,17 @@
-function Test-WingetInstalledById([string] $Id) {
-    & winget list --id $id --exact
+function Test-WingetInstalledById([string] $id) {
+    & winget list --id $id --exact | Out-Null
 
     return $LASTEXITCODE -eq 0
 }
 
-function Test-WingetInstalledByIdLike([string] $Id) {
-    & winget list --id $id
+function Test-WingetInstalledByIdLike([string] $id) {
+    & winget list --id $id | Out-Null
 
     return $LASTEXITCODE -eq 0
 }
 
 function Test-WingetInstalledByName([string] $name) {
-    & winget list --name $name --exact
+    & winget list --name $name --exact | Out-Null
 
     return $LASTEXITCODE -eq 0
 }
