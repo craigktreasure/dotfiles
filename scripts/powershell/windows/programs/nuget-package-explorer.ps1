@@ -1,7 +1,15 @@
-#Requires -PSEdition Core
-
 $ErrorActionPreference = "Stop"
 
-Write-Host 'Installing NuGet Package Explorer...'
+. (Join-Path $PSScriptRoot '..' 'winget-helpers.ps1')
 
-winget install --id=50582LuanNguyen.NuGetPackageExplorer --exact --source msstore
+Write-Host 'Installing NuGet Package Explorer...' -ForegroundColor Magenta
+
+# MS Store id
+$wingetId = '9WZDNCRDMDM3'
+
+if (Test-WingetInstalledById $wingetId) {
+    Write-Host 'Already installed.'
+    return
+}
+
+winget install --id=$wingetId --exact --source msstore --accept-package-agreements
