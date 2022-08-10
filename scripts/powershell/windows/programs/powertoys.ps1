@@ -2,11 +2,20 @@
 
 $ErrorActionPreference = "Stop"
 
-Write-Host 'Installing PowerToys...'
+. (Join-Path $PSScriptRoot '..' 'winget-helpers.ps1')
+
+Write-Host 'Installing PowerToys...' -ForegroundColor Magenta
 
 if ($IsArm64) {
     Write-Warning 'Not available on ARM64.'
     return
 }
 
-winget install --id=Microsoft.PowerToys --exact
+$wingetId = 'Microsoft.PowerToys'
+
+if (Test-WingetInstalledById $wingetId) {
+    Write-Host 'Already installed.'
+    return
+}
+
+winget install --id=$wingetId --exact
