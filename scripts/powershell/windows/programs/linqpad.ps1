@@ -2,6 +2,15 @@
 
 $ErrorActionPreference = "Stop"
 
-Write-Host 'Installing LINQPad 6...'
+. (Join-Path $PSScriptRoot '..' 'winget-helpers.ps1')
 
-winget install --id=LINQPad.LINQPad6 --exact
+Write-Host 'Installing LINQPad 7...' -ForegroundColor Magenta
+
+$wingetId = 'LINQPad.LINQPad.7'
+
+if (Test-WingetInstalledById $wingetId) {
+    Write-Host 'Already installed.'
+    return
+}
+
+winget install --id=$wingetId --exact
