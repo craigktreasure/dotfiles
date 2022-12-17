@@ -11,4 +11,4 @@ $rustupPath = Start-DownloadWithRetry -Url 'https://win.rustup.rs/x86_64' -Name 
 Append-ToPath (Join-Path $HOME '.cargo' 'bin')
 
 rustup component add rustfmt clippy
-cargo install bindgen cbindgen cargo-audit cargo-outdated
+cargo install cbindgen cargo-audit cargo-outdated
