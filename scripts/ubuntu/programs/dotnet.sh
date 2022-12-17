@@ -1,8 +1,8 @@
 #!/bin/bash -e
 
-# https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu
+# https://docs.microsoft.com/dotnet/core/install/linux-ubuntu
 
-echo "Installing .NET 6.0"
+echo "Installing .NET 6.0 and 7.0"
 
 # Update the list of packages
 sudo apt-get update
@@ -21,4 +21,4 @@ rm ~/packages-microsoft-prod.deb
 sudo apt-get update; \
   sudo apt-get install -y apt-transport-https && \
   sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-6.0
+  sudo apt-get install -y dotnet-sdk-6.0 dotnet-sdk-7.0

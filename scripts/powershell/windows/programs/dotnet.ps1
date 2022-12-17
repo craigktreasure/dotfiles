@@ -8,9 +8,20 @@ Write-Host 'Installing .NET 6 SDK...' -ForegroundColor Magenta
 
 $wingetId = 'Microsoft.DotNet.SDK.6'
 
-if (Test-WingetInstalledById $wingetId) {
+if (-not (Test-WingetInstalledById $wingetId)) {
+    winget install --id=$wingetId --exact
+}
+else {
     Write-Host 'Already installed.'
-    return
 }
 
-winget install --id=$wingetId --exact
+Write-Host 'Installing .NET 7 SDK...' -ForegroundColor Magenta
+
+$wingetId = 'Microsoft.DotNet.SDK.7'
+
+if (Test-WingetInstalledById $wingetId) {
+    winget install --id=$wingetId --exact
+}
+else {
+    Write-Host 'Already installed.'
+}
