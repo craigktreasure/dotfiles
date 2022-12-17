@@ -4,6 +4,12 @@
 
 echo "Installing .NET 6.0 and 7.0"
 
+sudo cat <<EOT >> /etc/apt/preferences
+Package: *
+Pin: origin "packages.microsoft.com"
+Pin-Priority: 1001
+EOT
+
 # Update the list of packages
 sudo apt-get update
 
