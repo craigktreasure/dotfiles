@@ -4,7 +4,7 @@
 
 echo "Installing .NET 6.0 and 7.0"
 
-sudo cat <<EOT >> /etc/apt/preferences
+sudo tee -a /etc/apt/preferences > /dev/null <<EOT 
 Package: *
 Pin: origin "packages.microsoft.com"
 Pin-Priority: 1001
