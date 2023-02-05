@@ -29,5 +29,5 @@ scoop install nuget vswhere dotpeek gh ilspy `
 
 Write-Host 'Installing extra scoop apps...' -ForegroundColor Magenta
 scoop install cpu-z mediainfo hwmonitor git-sizer `
-              windirstat bulk-rename-utility mp3tag filezilla vlc `
-              win32-disk-imager winmerge
+              windirstat bulk-rename-utility mp3tag `
+              win32-disk-imager winmerge dive
