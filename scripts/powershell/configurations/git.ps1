@@ -19,12 +19,12 @@ function Get-IsDomainJoined {
 
 # https://github.com/GitCredentialManager/git-credential-manager/blob/main/docs/wsl.md
 function Get-GitCredentialManagerCorePath {
-    $location = "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager-core.exe"
+    $location = "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
     if (Test-Path $location) {
         return $location
     }
 
-    $locations = @(Get-ChildItem -Path '/mnt/c/Program Files/Git' -Recurse -Filter git-credential-manager-core.exe)
+    $locations = @(Get-ChildItem -Path '/mnt/c/Program Files/Git' -Recurse -Filter git-credential-manager.exe)
 
     if ($locations.Count -eq 0) {
         return $null
@@ -37,7 +37,7 @@ function Set-GitCredentialManagerCoreConfiguration {
     $gcmcPath = Get-GitCredentialManagerCorePath
 
     if (-not $gcmcPath) {
-        Write-Warning 'Unable to locate git-credential-manager-core.exe. Git credential manager will need to be configured manually.'
+        Write-Warning 'Unable to locate git-credential-manager.exe. Git credential manager will need to be configured manually.'
         return
     }
 
