@@ -2,7 +2,7 @@
 
 # https://docs.microsoft.com/dotnet/core/install/linux-ubuntu
 
-echo "Installing .NET 6.0 and 7.0"
+echo "Installing .NET 6, 7, and 8"
 
 sudo tee -a /etc/apt/preferences > /dev/null <<EOT 
 Package: *
@@ -27,4 +27,4 @@ rm ~/packages-microsoft-prod.deb
 sudo apt-get update; \
   sudo apt-get install -y apt-transport-https && \
   sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-6.0 dotnet-sdk-7.0
+  sudo apt-get install -y dotnet-sdk-6.0 dotnet-sdk-7.0 dotnet-sdk-8.0
