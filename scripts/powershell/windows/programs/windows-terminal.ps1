@@ -6,13 +6,9 @@ $ErrorActionPreference = "Stop"
 
 Write-Host 'Installing Windows Terminal...' -ForegroundColor Magenta
 
-# The MS Store package id
-$wingetId = '9N0DX20HK701'
-
 if (Test-WingetInstalledById $wingetId -or Test-WingetInstalledById 'Microsoft.WindowsTerminal') {
     Write-Host 'Already installed.'
     return
 }
 
-
-winget install --id=$wingetId --exact --source msstore
+Install-WingetPackageById '9N0DX20HK701'

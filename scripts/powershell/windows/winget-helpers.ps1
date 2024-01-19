@@ -1,3 +1,7 @@
+function Install-WingetPackageById([string] $wingetId) {
+    winget install --id=$wingetId --exact --interactive
+}
+
 function Test-WingetInstalledById([string] $id) {
     & winget list --id $id --exact | Out-Null
 
