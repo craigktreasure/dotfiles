@@ -15,7 +15,7 @@ Write-Host 'Installing scoop required apps...' -ForegroundColor Magenta
 scoop install 7zip innounp dark
 
 Write-Host 'Installing sysadmin scoop tools...' -ForegroundColor Magenta
-scoop install sudo which grep gzip zip unzip `
+scoop install which grep gzip zip unzip `
               psutils wget mkcert `
               speedtest-cli bat less
 
