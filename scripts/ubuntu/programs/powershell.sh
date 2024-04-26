@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-# https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux
+# https://learn.microsoft.com/powershell/scripting/install/install-ubuntu
 
 echo "Installing PowerShell..."
 
@@ -23,9 +23,6 @@ rm ~/packages-microsoft-prod.deb
 
 # Update the list of products
 sudo apt-get update
-
-# Enable the "universe" repositories
-sudo add-apt-repository universe
 
 # Install PowerShell
 sudo apt-get install -y powershell
