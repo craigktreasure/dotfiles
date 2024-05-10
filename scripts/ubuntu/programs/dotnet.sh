@@ -11,4 +11,3 @@ else
     # Call the script for versions less than Ubuntu 24.04
     ./dotnet.pre24.sh
 fi
-
