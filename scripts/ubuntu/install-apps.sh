@@ -15,15 +15,9 @@ echo "Intalling packages that require new package sources and other configuratio
 
 . $SCRIPTS_UBUNTU_DIR/programs/git.sh
 . $SCRIPTS_UBUNTU_DIR/programs/dotnet.sh
-. $SCRIPTS_UBUNTU_DIR/programs/powershell.sh
-. $SCRIPTS_UBUNTU_DIR/programs/homebrew.sh
-. $SCRIPTS_UBUNTU_DIR/programs/rust.sh
-
-echo "Intalling Homebrew packages..."
-
-. $SCRIPTS_UBUNTU_DIR/programs/cmake.sh
 . $SCRIPTS_UBUNTU_DIR/programs/github-cli.sh
-. $SCRIPTS_UBUNTU_DIR/programs/llvm.sh
+. $SCRIPTS_UBUNTU_DIR/programs/powershell.sh
+. $SCRIPTS_UBUNTU_DIR/programs/rust.sh
 
 if grep -q WSL /proc/sys/kernel/osrelease; then
   echo "Installing WSL utilities..."
