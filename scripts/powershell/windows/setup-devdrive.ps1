@@ -27,3 +27,4 @@ ConfigurePackagePath 'PIP_CACHE_DIR' (Join-Path $devDrivePath '.packages\pip')
 ConfigurePackagePath 'CARGO_HOME' (Join-Path $devDrivePath '.packages\cargo')
 $mavenPackagePath = Join-Path $devDrivePath '.packages\maven'
 ConfigurePackagePath 'MAVEN_OPTS' $mavenPackagePath "-Dmaven.repo.local=$mavenPackagePath %MAVEN_OPTS%"
+ConfigurePackagePath 'GRADLE_USER_HOME' (Join-Path $devDrivePath '.packages\gradle')
