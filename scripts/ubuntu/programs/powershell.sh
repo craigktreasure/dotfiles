@@ -7,8 +7,14 @@ echo "Installing PowerShell..."
 # Get the Ubuntu version
 version=$(lsb_release -rs)
 
+# ARM isn't currently supported on the package managers, so if the architecture
+# is ARM, then install the .NET global tool instead.
+if [ $(uname -m) = "aarch64" ]; then
+    echo "ARM architecture detected. Installing PowerShell .NET global tool instead."
+    dotnet tool update --global PowerShell
+    export PATH="$PATH:~/.dotnet/tools"
 # Check if the version is greater than or equal to 24.04
-if [ $(echo "$version 24.04" | awk '{print ($1 >= $2)}') -ne 0 ]; then
+elif [ $(echo "$version 24.04" | awk '{print ($1 >= $2)}') -ne 0 ]; then
     # Installation method for Ubuntu 24.04 or greater
 
     # https://github.com/PowerShell/PowerShell/issues/21385
