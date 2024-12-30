@@ -6,11 +6,6 @@ $ErrorActionPreference = "Stop"
 
 Write-Host 'Installing PowerToys...' -ForegroundColor Magenta
 
-if ($IsArm64) {
-    Write-Warning 'Not available on ARM64.'
-    return
-}
-
 $wingetId = 'Microsoft.PowerToys'
 
 if (Test-WingetInstalledById $wingetId) {
