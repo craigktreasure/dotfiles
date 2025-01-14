@@ -14,5 +14,3 @@ $programsPath = Join-Path $PSScriptRoot 'programs'
 . "$programsPath/powertoys.ps1"
 . "$programsPath/vs-code.ps1"
 . "$programsPath/windows-terminal.ps1"
-. "$programsPath/visual-studio.ps1"
-. "$programsPath/rust.ps1" # Rust can depend on msvc

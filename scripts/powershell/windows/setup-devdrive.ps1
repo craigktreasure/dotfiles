@@ -43,7 +43,7 @@ ConfigurePackagePath 'MAVEN_OPTS' $mavenPackagePath "-Dmaven.repo.local=$mavenPa
 ConfigurePackagePath 'GRADLE_USER_HOME' (Join-Path $devDrivePath '.packages\gradle')
 
 # Go
-ConfigurePackagePath 'GOBIN' '%USERPROFILE%\go\bin'
+ConfigurePackagePath 'GOBIN' "$($env:USERPROFILE)\go\bin"
 $goPath = Join-Path $devDrivePath '.packages\go'
 ConfigurePackagePath 'GOPATH' $goPath
 ConfigurePackagePath 'GOCACHE' (Join-Path $goPath 'cache')

@@ -21,7 +21,6 @@ scoop install which grep gzip zip unzip `
 
 Write-Host 'Installing development scoop apps...' -ForegroundColor Magenta
 scoop install nuget vswhere dotpeek gh ilspy `
-              notepadplusplus `
               msbuild-structured-log-viewer
 
 Write-Host 'Installing extra scoop apps...' -ForegroundColor Magenta
