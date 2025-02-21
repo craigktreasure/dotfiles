@@ -1,5 +1,18 @@
-function Install-WingetPackageById([string] $wingetId) {
-    winget install --id=$wingetId --exact --interactive
+function Install-WingetPackageById([string] $wingetId, [bool] $silent = $false) {
+    $wingetArgs = @(
+        'install'
+        '--id'
+        $wingetId
+        '--exact'
+    )
+
+    if ($silent) {
+        $wingetArgs += '--silent'
+    } else {
+        $wingetArgs += '--interactive'
+    }
+
+    winget @wingetArgs
 }
 
 function Test-WingetInstalledById([string] $id) {
