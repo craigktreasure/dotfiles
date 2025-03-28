@@ -1,4 +1,4 @@
-function Install-WingetPackageById([string] $wingetId, [bool] $silent = $false) {
+function Install-WingetPackageById([string] $wingetId, [switch] $silent = $false) {
     $wingetArgs = @(
         'install'
         '--id'
