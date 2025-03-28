@@ -60,11 +60,34 @@ function Start-DownloadWithRetry
 }
 Export-ModuleMember -Function Start-DownloadWithRetry
 
+function Test-EnvPathContainsPath {
+    param (
+        [string]$PathToCheck
+    )
+
+    # Check if the path is already in the PATH environment variable
+    $pathsInPath = $env:PATH -split [System.IO.Path]::PathSeparator |
+        ForEach-Object { $_.TrimEnd(([System.IO.Path]::DirectorySeparatorChar, [System.IO.Path]::AltDirectorySeparatorChar)) }
+
+    # Perform a case-insensitive comparison
+    foreach ($path in $pathsInPath) {
+        if ($path -ieq $PathToCheck) {
+            return $true
+        }
+    }
+}
+Export-ModuleMember -Function Test-EnvPathContainsPath
+
 function Append-ToPath {
 
     Param(
         [string]$PathToAdd
     )
+
+    # Check if the path is already in the PATH environment variable
+    if (Test-EnvPathContainsPath -PathToCheck $PathToAdd) {
+        return
+    }
 
     $env:Path += "$([System.IO.Path]::PathSeparator)$PathToAdd"
 }
