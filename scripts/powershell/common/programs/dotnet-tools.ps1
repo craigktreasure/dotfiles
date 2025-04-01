@@ -9,8 +9,18 @@ dotnet tool install -g nbgv
 dotnet tool install -g slnup
 dotnet tool install -g dotnet-suggest
 
+$ProfileLocation = if ($env:HOME) {
+   $env:HOME
+}
+elseif($env:USERPROFILE) {
+   $env:USERPROFILE
+}
+else {
+    throw 'Unable to find profile location.'
+}
+
 # Fix dotnet-suggest to run on newer runtime versions
-$dotnetSuggestRuntimeConfigPath = Join-Path $env:HOME '.dotnet\tools\.store\dotnet-suggest\1.1.415701\dotnet-suggest\1.1.415701\tools\net7.0\any\dotnet-suggest.runtimeconfig.json'
+$dotnetSuggestRuntimeConfigPath = Join-Path $ProfileLocation '.dotnet\tools\.store\dotnet-suggest\1.1.415701\dotnet-suggest\1.1.415701\tools\net7.0\any\dotnet-suggest.runtimeconfig.json'
 if (Test-Path $dotnetSuggestRuntimeConfigPath) {
     Write-Host 'Patching dotnet-suggest to run on newer runtime versions...'
     $json = Get-Content $dotnetSuggestRuntimeConfigPath | ConvertFrom-Json
