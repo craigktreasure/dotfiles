@@ -24,4 +24,20 @@ function EnableLongPathsSupport {
     }
 }
 
+function ConfigureExplorer {
+    # Set File Explorer to open to This PC
+    $key = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
+    Set-ItemProperty -Path $key -Name 'LaunchTo' -Value 1 -Type DWord
+
+    # Disable "Use check boxes to select items"
+    Set-ItemProperty -Path $key -Name 'AutoCheckSelect' -Value 0 -Type DWord
+
+    # Restart Explorer to apply changes
+    Stop-Process -Name 'explorer' -Force
+    Start-Process 'explorer.exe'
+}
+
 EnableLongPathsSupport
+ConfigureExplorer
+
+Write-Host 'Windows configuration complete.'
