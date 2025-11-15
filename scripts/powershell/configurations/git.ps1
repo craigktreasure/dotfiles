@@ -56,7 +56,7 @@ if ($isDomainJoined) {
     Write-Host 'Make sure to configure the git email: git config --global user.email <email>' -ForegroundColor Yellow
 }
 else {
-    git config --global user.email 'craigktreasure@outlook.com'
+    git config --global user.email 'craigktreasure@gmail.com'
 }
 
 git config --global fetch.prune true
